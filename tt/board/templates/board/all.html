@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <title>T_T</title>
+    <style>
+        .tt-card {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: .5em;
+            font-size: large;
+            background-color: gray;
+            color: white;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .time {
+            font-size: small;
+            font-weight: bold;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>Welcome to ALL T_T</h1>
+    <a href="{% url 'index' %}">Home</a><br>
+    <a href="{% url 'new' %}">Write TT</a>
+    {% for tt in all_tts %}
+    <a href="{% url 'tt' tt.slug %}">
+        <div class="tt-card">
+            <h2>{{ tt.title }}</h2>
+            <span class="time">{{ tt.pub_date }}</span>
+        </div>
+    </a>
+    {% endfor %}
+</html>
